@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-
-
-##Sentiment Analysis for Multilingual Social Media Posts
+#Sentiment Analysis for Multilingual Social Media Posts
 
 
 Keywords:  Sentiment Analysis, Multilingual Subjectivity, Twitter Sentiment Classification, Opinion Mining, Word Representations, Suffix Stripping Algorithm
@@ -25,6 +22,9 @@ A third approach utilizes machine translation to translate an English sentiment 
 a. Data Sources
 In this investigation, we harnessed the power of two datasets sourced from Kaggle, namely, "Corona_NLP_train.csv" and "Corona_NLP_test.csv." These datasets provided a rich source of information for our analysis. The training dataset, "Corona_NLP_train.csv," and the testing dataset, "Corona_NLP_test.csv," were utilized to visualize and explore various aspects of the data available on Kaggle. Through these datasets, we aimed to gain valuable insights into the sentiment surrounding the topic of interest.
 
+![Picture 1](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture1.png?raw=true)
+
+
 b. Pre-processing
 We preprocess our dataset by eliminating irrelevant elements such as URLs, usernames, and stopwords. Additionally, we filter out special characters like hashtags and punctuations. Recognizing the significant impact of negation words on the overall meaning, we replace all instances of negation words (e.g., don't, can't, isn't) with "not" to ensure proper consideration of negation in a tweet.
 Certain emojis serve as reliable indicators of sentiment polarity. While some words may lack inherent sentiment, the presence of emojis alongside these words can imbue the tweet with sentiment value. Consequently, we emphasize the importance of retaining emojis in the corpus, and each emoji is substituted with an alias. To address sparsity and reduce vocabulary size, we perform two straightforward operations. Firstly, we lowercase every word in our corpus. Secondly, we eliminate characters that are repeated at least three times within a word. For example, "goooood" is transformed into "good." The final preprocessing step involves stemming, a process that minimizes morphological variations by reducing words to a common root or stem. In our approach, we employed the Porter stemmer, which reduces words like "saddest," "sadness," and "sadly" to the common root "sad."
@@ -33,24 +33,34 @@ Certain emojis serve as reliable indicators of sentiment polarity. While some wo
 c. Feature Engineering
 Datasets consist of a training set with 41,157 entries and a testing set with 3,798 entries, both containing two columns. Moving forward, a crucial aspect of the analysis involves understanding the unique sentiments present in the training data, namely 'Neutral,' 'Positive,' 'Extremely Negative,' 'Negative,' and 'Extremely Positive.'
 
+![Picture 2](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture2.png?raw=true)
  
 Two pandas test and train are outlined, the first containing 3798 entries and the second with 41157 entries. Each comprises three columns: 'OriginalTweet,' holding the tweet content; 'Sentiment,' indicating the sentiment labels; and 'encoded_cat,' representing encoded categorical sentiments as int8 values. Both datasets exhibit non-null values in their respective columns, reflecting comprehensive information. The efficient use of int8 data types minimizes memory usage, making the DataFrames suitable for storage and analysis. The provided summary encapsulates key details about the dataset structures, sizes, column contents, data types, and memory efficiency.
  
+![Picture 3](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture3.png?raw=true)
+
 c. Unique Sentiments in Training Data
 The exploration of unique sentiments provides a foundational understanding of the emotional expressions contained within the dataset. The identified sentiments serve as key categories that play a pivotal role in subsequent analyses.
  
 i.	Sentiment Counts in Training and Testing Data
 A detailed breakdown of sentiment counts in both the training and testing datasets reveals the distribution of sentiments across the entire dataset. This quantitative overview is essential for comprehending the prevalence of different sentiments.
+
+![Picture 4](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture4.png?raw=true)
  
 ii.	Encoding Sentiments
 An intriguing aspect of the analysis involves encoding sentiments, as reflected in the creation of a new column named 'encoded_cat' in the training dataset. This transformation into numerical values facilitates the application of machine learning models, contributing to the effectiveness of sentiment analysis.
+
+![Picture 5](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture5.png?raw=true)
  
 iii.	Head of the Training Data with Encoded Categories
 Examining the initial rows of the training dataset, which include the original tweets, associated sentiments, and newly encoded categories, provides a practical illustration of the dataset structure.
+
+![Picture 6](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture6.png?raw=true)
  
 iv.	Encoded Category Value Counts
 Delving deeper, the analysis highlights the counts of each encoded sentiment category in the training dataset. This breakdown sheds light on the distribution of sentiments after encoding.
  
+ ![Picture 7](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture7.png?raw=true)
 
 4. MODELS
 Our model architecture combines a multilingual transformer with attention mechanisms fine-tuned for sentiment analysis. We delve into the specifics of the architecture, explaining how it accommodates multilingual data and addresses challenges unique to social media language. A detailed examination of the training process, hyperparameter tuning, and the rationale behind the chosen architecture enriches the technical understanding.
@@ -58,9 +68,12 @@ Our model architecture combines a multilingual transformer with attention mechan
 5. EVALUATIONS 
 In this segment, we showcase the outcomes of the models' assessment. Initially, we conducted training on the training subset, encompassing 80% of the dataset, and subsequently assessed their performance on the testing subset, which comprises 20% of the dataset.
 Train and Test for original tweet
+
+![Picture 8](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture8.png?raw=true)
  
 6. RESULTS AND DISCUSSION
 
+![Picture 9](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture9.png?raw=true)
  
 The classification report outlines precision, recall, and F1-score metrics for each sentiment category. The model exhibits outstanding performance, achieving perfect scores across all metrics for each sentiment class, including 'Extremely Negative,' 'Extremely Positive,' 'Negative,' 'Neutral,' and 'Positive.' The accuracy score is also exceptionally high, reaching 100%, indicating the model's ability to accurately classify sentiments in the given dataset. The macro and weighted averages reinforce the overall excellence of the model's performance, demonstrating its robustness in handling various sentiment categories related to COVID-19. It's worth noting that achieving such perfect scores is rare in practical scenarios and suggests a highly effective sentiment analysis model in this specific context.
 7. REAL-WORLD DEPLOYMENT DEMO
@@ -70,6 +83,8 @@ Features: 1. Analyzing sentiments in CSV and Text files
 3. Visualizing sentiment distribution
 The goal of our application is to perform sentiment analysis on social media posts related to COVID-19. We support various file formats, such as CSV and Text, and provide functionalities for predicting accuracy and visualizing sentiment distribution.
  
+![Picture 10](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture10.png?raw=true)
+
 Components
 •	File Selection: Browse and load CSV or Text files
 •	File Type: Choose between CSV, Text, or Other
@@ -90,10 +105,11 @@ Functionality
 
 Output
  
-	
+![Picture 11](https://github.com/UNH-NLP-Project/SentimentAnalysisUsingBert/blob/main/Images/Picture11.png?raw=true)
+
 •	The image you sent shows the output of a sentiment analysis program for the text "Image, Faces IMG_5882.jpg, "rectanglı 1". 
 •	The overall sentiment is 4 stars (0.3050). This means that the program has determined that the text expresses a positive sentiment, with a confidence score of 30.5%.
-•	The program has also analyzed the sentiment of each individual sentence in the text. The sentences "Image, Faces IMG_5882.jpg, "rectanglı 1" and "IMG_5883.jpg, "rectangles[[(1505,803 1" have been classified as positive, with sentiment scores of 0.3050 and 0.2597, respectively.
+•	The program has also analyzed the sentiment of each individual sentence in the text. The sentences "Image, Faces IMG_5882.jpg, "rectanglı 1" and "IMG_5883.jpg, "rectangles 1505,803 1" have been classified as positive, with sentiment scores of 0.3050 and 0.2597, respectively.
 •	The sentences "IMG_5884.jpg, rectangles[]" and "IMG_5885. 1" have been classified as neutral, with sentiment scores of 0.2371 and 0.2180, respectively.
 
 
@@ -126,9 +142,3 @@ CONTRIBUTORS
 3.	Medhini Barla
 
 
-
- 
-
-=======
-# SentimentAnalysisUsingBert
->>>>>>> 810e7b93f65057cf4ada40afdd3dbfbaad3f2dd2
