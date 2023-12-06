@@ -77,7 +77,6 @@ class SentimentAnalyzerGUI:
         elif self.file_type_var.get() == "Text":
             return pd.DataFrame({"Text": [line.strip() for line in open(file_path, 'r', encoding='utf-8') if line.strip()]})
         else:
-            # Handle other file types accordingly
             return pd.DataFrame()
 
     def perform_sentiment_analysis(self):
@@ -93,50 +92,39 @@ class SentimentAnalyzerGUI:
 
         sentiments = sentiment_analyzer(text_data)
 
-        # Update the Listbox with sentiment analysis outputs
         self.listbox.delete(0, tk.END)
         for i, sentiment in enumerate(sentiments):
             self.listbox.insert(tk.END, f"Entry {i + 1}: {sentiment['label']} ({sentiment['score']:.4f})")
 
-        # Display the overall sentiment
         overall_sentiment = max(sentiments, key=lambda x: x['score'])
         self.result_label.config(text=f"Overall Sentiment: {overall_sentiment['label']} ({overall_sentiment['score']:.4f})")
 
-        # Add the 'Sentiment' column to the DataFrame
         if not hasattr(self, 'df'):
             self.df = pd.DataFrame({"Text": text_data})
 
         self.df['Sentiment'] = [result['label'] for result in sentiments]
 
-        # Optionally, you can save the updated DataFrame to a new CSV file
         self.df.to_csv("analyzed_sentiments.csv", index=False)
 
-        # Perform N-gram analysis and display results in the table
         overall_words_analysis = self.get_overall_words_analysis(text_data)
         self.display_overall_words_analysis(overall_words_analysis)
 
     def get_overall_words_analysis(self, text_data):
-        # Combine all text data into a single string
         combined_text = ' '.join(text_data)
 
-        # Tokenize the text into words
         words = combined_text.split()
 
-        # Use N-gram (e.g., bi-gram) to extract word sequences
         n = 2
         ngrams_list = list(ngrams(words, n))
 
-        # Count the frequency of each word sequence
         ngrams_counter = Counter(ngrams_list)
 
         return ngrams_counter
 
     def display_overall_words_analysis(self, overall_words_analysis):
-        # Clear the existing table
         for item in self.table.get_children():
             self.table.delete(item)
 
-        # Display the overall words analysis in the table
         for ngram, count in overall_words_analysis.items():
             self.table.insert("", tk.END, values=(f"{ngram[0]} {ngram[1]}", count))
 
@@ -144,7 +132,7 @@ class SentimentAnalyzerGUI:
         self.text_input.delete("1.0", tk.END)
         self.result_label.config(text="")
         self.listbox.delete(0, tk.END)
-        self.df = None  # Reset the DataFrame
+        self.df = None 
         self.clear_table()
 
     def clear_table(self):
