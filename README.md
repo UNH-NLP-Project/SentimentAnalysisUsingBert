@@ -1,4 +1,4 @@
-#Sentiment Analysis for Multilingual Social Media Posts
+Sentiment Analysis for Multilingual Social Media Posts
 
 
 Keywords:  Sentiment Analysis, Multilingual Subjectivity, Twitter Sentiment Classification, Opinion Mining, Word Representations, Suffix Stripping Algorithm
@@ -117,9 +117,6 @@ Output
 CONCLUSION
 The sentiment analysis results based on COVID-19 demonstrate an exceptional performance of the model. With perfect precision, recall, and F1-score across all sentiment categories, including 'Extremely Negative,' 'Extremely Positive,' 'Negative,' 'Neutral,' and 'Positive,' the model exhibits an unparalleled accuracy of 100%. The macro and weighted averages further affirm the model's robustness, indicating its ability to effectively handle diverse sentiment expressions related to the pandemic. While achieving such flawless scores is uncommon, it underscores the effectiveness of the sentiment analysis model in accurately capturing and categorizing sentiments within the provided dataset. This outcome showcases the model's reliability and suitability for sentiment analysis tasks in the context of COVID-19.The Sentiment Analysis GUI combines the power of BERT models with an intuitive interface. Users can perform accurate sentiment analysis, predict accuracy, and gain insights through visually appealing plots, making it a comprehensive tool for social media sentiment analysis.
 
-
-
-
 REFERENCES
 [1].	Banea, C., Mihalcea, R., & Wiebe, J. (2010). Multilingual subjectivity: Are more languages better? Proceedings of the 23rd International Conference on Computational Linguistics (Coling 2010).
 [2].	Bautin, M., Vijayarenu, L., & Skiena, S. (2008). International sentiment analysis for news and blogs. ICWSM.
@@ -136,6 +133,7 @@ REFERENCES
 [13].	Statista. (2019). Internet: most common languages online 2020 | Statista.
 [14].	Taboada, M., Brooke, J., Tofiloski, M., Voll, K., & Stede, M. (2011). Lexicon-based methods for sentiment analysis. Computational linguistics, 37(2), 267-307.
 [15].	Wang, J., Yu, L.-C., Lai, K. R., & Zhang, X. (2016). Dimensional sentiment analysis using a regional CNN-LSTM model. Proceedings of the 54th annual meeting of the association for computational linguistics (volume 2: Short papers).
+
 CONTRIBUTORS
 1.	Likhitha Gupta Thallapally
 2.	Santhoshi Raghuram
